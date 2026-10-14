@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinetix — Adaptive Strength & Biometric Intelligence</title>
+    <meta name="description" content="Next-generation strength training platform powered by real-time biometric adaptation and algorithmic progressive overload.">
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            lime: '#CCFF00',
+                            emerald: '#10B981',
+                            dark: '#090A0F',
+                            surface: '#12151E',
+                            border: '#1F2433'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #090A0F;
+            color: #F8FAFC;
+            overflow-x: hidden;
+        }
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        .glow-effect {
+            background: radial-gradient(circle at 50% 50%, rgba(204, 255, 0, 0.12), transparent 70%);
+        }
+        .glass-card {
+            background: rgba(18, 21, 30, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(9, 10, 15, 0.8);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-grid-pattern antialiased selection:bg-brand-lime selection:text-brand-dark">
+
+    <!-- Ambient Background Glow -->
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] glow-effect pointer-events-none -z-10"></div>
+
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2.5 group">
+                <div class="w-9 h-9 rounded-lg bg-brand-lime flex items-center justify-center text-brand-dark font-display font-extrabold text-xl transition-transform group-hover:scale-105">
+                    <i data-lucide="activity" class="w-5 h-5 stroke-[2.5]"></i>
+                </div>
+                <span class="font-display font-bold text-xl tracking-tight text-white">KINETIX</span>
+                <span class="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/10 text-brand-lime border border-brand-lime/20 ml-1">Beta</span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+                <a href="#features" class="hover:text-white transition-colors">Technology</a>
+                <a href="#how-it-works" class="hover:text-white transition-colors">Methodology</a>
+                <a href="#roadmap" class="hover:text-white transition-colors">Roadmap</a>
+                <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#waitlist" class="px-5 py-2.5 rounded-lg bg-brand-lime text-brand-dark font-display font-bold text-sm hover:bg-[#b8e600] transition-all shadow-[0_0_20px_rgba(204,255,0,0.25)]">
+                    Request Early Access
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="pt-32 pb-20 md:pt-40 md:pb-28 px-6">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            
+            <!-- Left Column: Copy -->
+            <div class="lg:col-span-7 space-y-8">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-surface border border-brand-border text-xs font-medium text-slate-300">
+                    <span class="w-2 h-2 rounded-full bg-brand-lime animate-pulse"></span>
+                    <span>Private Beta v0.94 — Now accepting athletes</span>
+                </div>
+
+                <h1 class="font-display font-extrabold text-4xl sm:text-6xl lg:text-[64px] tracking-tight leading-[1.08] text-white">
+                    Strength training, <br />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-lime via-emerald-400 to-teal-400">
+                        algorithmically perfected.
+                    </span>
+                </h1>
+
+                <p class="text-lg sm:text-xl text-slate-400 max-w-2xl leading-relaxed font-normal">
+                    Stop guessing your working weights. Kinetix synthesizes your CNS recovery, velocity metrics, and historical volume to dynamically recalibrate every set in real time.
+                </p>
+
+                <!-- Waitlist Form -->
+                <div id="waitlist" class="pt-2 max-w-md">
+                    <form id="hero-form" class="flex flex-col sm:flex-row gap-3">
+                        <input 
+                            type="email" 
+                            required
+                            placeholder="Enter your email address..." 
+                            class="flex-1 px-4 py-3.5 rounded-xl bg-brand-surface border border-brand-border text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-lime transition-colors"
+                        >
+                        <button 
+                            type="submit" 
+                            class="px-6 py-3.5 rounded-xl bg-brand-lime text-brand-dark font-display font-bold text-sm hover:bg-[#b8e600] transition-all flex items-center justify-center gap-2 shrink-0 shadow-[0_0_25px_rgba(204,255,0,0.2)]"
+                        >
+                            <span>Join Waitlist</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+                    <div id="form-success" class="hidden mt-3 p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs flex items-center gap-2">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 shrink-0"></i>
+                        <span>You're on the list! We'll send your TestFlight / Beta invite soon.</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-3 flex items-center gap-4">
+                        <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-lime"></i> iOS & Android</span>
+                        <span class="flex items-center gap-1.5"><i data-lucide="watch" class="w-3.5 h-3.5 text-brand-lime"></i> Apple Watch & Whoop Sync</span>
+                    </p>
+                </div>
+
+                <!-- Micro Metrics -->
+                <div class="pt-6 border-t border-white/5 grid grid-cols-3 gap-6 max-w-lg">
+                    <div>
+                        <div class="font-display font-bold text-2xl text-white">2,400+</div>
+                        <div class="text-xs text-slate-500 mt-0.5">Beta Testers</div>
+                    </div>
+                    <div>
+                        <div class="font-display font-bold text-2xl text-white">142k</div>
+                        <div class="text-xs text-slate-500 mt-0.5">Sets Analyzed</div>
+                    </div>
+                    <div>
+                        <div class="font-display font-bold text-2xl text-brand-lime">+18.4%</div>
+                        <div class="text-xs text-slate-500 mt-0.5">Avg. 1RM Increase</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Interactive App UI Mockup (Pure HTML/CSS) -->
+            <div class="lg:col-span-5 relative">
+                <div class="absolute -inset-1 bg-gradient-to-tr from-brand-lime/20 to-emerald-500/20 rounded-3xl blur-2xl -z-10"></div>
+                
+                <!-- Phone Frame -->
+                <div class="glass-card rounded-[32px] p-6 border border-white/10 shadow-2xl max-w-md mx-auto">
+                    <!-- App Header -->
+                    <div class="flex items-center justify-between pb-5 border-b border-white/5">
+                        <div>
+                            <span class="text-[11px] font-semibold uppercase tracking-wider text-brand-lime">Active Session</span>
+                            <h3 class="font-display font-bold text-lg text-white">Hypertrophy Block • Day 4</h3>
+                        </div>
+                        <div class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium flex items-center gap-1.5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                            CNS Ready: 94%
+                        </div>
+                    </div>
+
+                    <!-- Current Exercise Card -->
+                    <div class="my-5 p-4 rounded-2xl bg-brand-dark/90 border border-white/5 space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="text-xs text-slate-400">Primary Compound</div>
+                                <div class="font-display font-bold text-base text-white mt-0.5">Barbell Incline Press</div>
+                            </div>
+                            <span class="text-xs font-mono bg-white/5 px-2.5 py-1 rounded text-slate-300">Target RPE: 8.5</span>
+                        </div>
+
+                        <!-- Set Table -->
+                        <div class="space-y-2 text-xs">
+                            <div class="grid grid-cols-4 text-slate-500 font-medium pb-1 border-b border-white/5">
+                                <span>SET</span>
+                                <span>LOAD</span>
+                                <span>REPS</span>
+                                <span class="text-right">STATUS</span>
+                            </div>
+                            <div class="grid grid-cols-4 items-center py-1.5 text-slate-300">
+                                <span class="font-mono text-slate-500">01</span>
+                                <span class="font-semibold">90.0 kg</span>
+                                <span>8</span>
+                                <span class="text-right text-emerald-400 flex justify-end"><i data-lucide="check" class="w-4 h-4"></i></span>
+                            </div>
+                            <div class="grid grid-cols-4 items-center py-1.5 text-slate-300">
+                                <span class="font-mono text-slate-500">02</span>
+                                <span class="font-semibold">95.0 kg</span>
+                                <span>8</span>
+                                <span class="text-right text-emerald-400 flex justify-end"><i data-lucide="check" class="w-4 h-4"></i></span>
+                            </div>
+                            <!-- Dynamic Adjusted Set -->
+                            <div class="grid grid-cols-4 items-center py-2 px-2.5 -mx-2.5 rounded-lg bg-brand-lime/10 border border-brand-lime/30 text-white">
+                                <span class="font-mono text-brand-lime font-bold">03</span>
+                                <span class="font-bold text-brand-lime">97.5 kg</span>
+                                <span class="font-bold">7-8</span>
+                                <span class="text-right text-[10px] font-semibold uppercase px-1.5 py-0.5 rounded bg-brand-lime text-brand-dark justify-self-end">Auto +2.5kg</span>
+                            </div>
+                        </div>
+
+                        <!-- AI Telemetry Note -->
+                        <div class="p-3 rounded-xl bg-white/[0.03] border border-white/5 flex gap-3 items-start">
+                            <i data-lucide="cpu" class="w-4 h-4 text-brand-lime shrink-0 mt-0.5"></i>
+                            <p class="text-[11px] text-slate-300 leading-relaxed">
+                                <strong class="text-white">Telemetry Insight:</strong> Bar velocity on Set 2 exceeded baseline by 11%. Load automatically scaled +2.5kg to maintain optimal mechanical tension.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Biometric Footer -->
+                    <div class="grid grid-cols-2 gap-3 pt-2">
+                        <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-center gap-3">
+                            <div class="p-2 rounded-lg bg-rose-500/10 text-rose-400">
+                                <i data-lucide="heart-pulse" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <div class="text-[10px] text-slate-400">Live Heart Rate</div>
+                                <div class="font-display font-bold text-sm text-white">138 BPM</div>
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5 flex items-center gap-3">
+                            <div class="p-2 rounded-lg bg-brand-lime/10 text-brand-lime">
+                                <i data-lucide="timer" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <div class="text-[10px] text-slate-400">Optimal Rest</div>
+                                <div class="font-display font-bold text-sm text-white">01:45 Rem</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bento Grid Features Section -->
+    <section id="features" class="py-24 px-6 border-t border-white/5">
+        <div class="max-w-7xl mx-auto space-y-16">
+            <div class="max-w-2xl space-y-4">
+                <span class="text-xs font-semibold uppercase tracking-widest text-brand-lime">Core Architecture</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl text-white tracking-tight">
+                    Built for athletes who outgrew static spreadsheets.
+                </h2>
+                <p class="text-slate-400 text-base leading-relaxed">
+                    Traditional fitness apps are just digital notebooks. Kinetix acts as a real-time physiologist, adapting your programming mid-workout based on objective performance markers.
+                </p>
+            </div>
+
+            <!-- Bento Grid -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Feature 1 (Large) -->
+                <div class="md:col-span-2 glass-card rounded-2xl p-8 relative overflow-hidden group hover:border-brand-lime/30 transition-all">
+                    <div class="max-w-md space-y-4 relative z-10">
+                        <div class="w-10 h-10 rounded-xl bg-brand-lime/10 border border-brand-lime/20 flex items-center justify-center text-brand-lime">
+                            <i data-lucide="sliders" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white">Dynamic Progressive Overload</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Linear progression breaks down after beginner gains. Our engine analyzes rep tempo, RPE drift, and accumulated fatigue across microcycles to prescribe exact fractional weight jumps.
+                        </p>
+                    </div>
+                    <div class="mt-8 pt-6 border-t border-white/5 flex flex-wrap gap-3">
+                        <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-slate-300">RPE Auto-Regulation</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-slate-300">Fatigue Decay Modeling</span>
+                        <span class="text-xs px-3 py-1 rounded-full bg-white/5 text-slate-300">1RM Trajectory</span>
+                    </div>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between hover:border-brand-lime/30 transition-all">
+                    <div class="space-y-4">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+                            <i data-lucide="watch" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white">Biometric Rest Timers</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Stop using arbitrary 2-minute timers. Kinetix monitors your HRV and heart rate recovery curve via wearable integration to trigger your next set the exact second your ATP-PCr system is replenished.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-white/5 text-xs text-emerald-400 font-medium flex items-center gap-1.5">
+                        <i data-lucide="zap" class="w-4 h-4"></i> HealthKit & Google Health Connect
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="glass-card rounded-2xl p-8 flex flex-col justify-between hover:border-brand-lime/30 transition-all">
+                    <div class="space-y-4">
+                        <div class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400">
+                            <i data-lucide="scan-line" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white">Computer Vision Tempo</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Use your phone camera to track barbell path and concentric velocity (m/s). Detect form breakdown and mechanical sticking points before injury occurs.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-white/5 text-xs text-slate-500 font-mono">
+                        VBT (Velocity Based Training)
+                    </div>
+                </div>
+
+                <!-- Feature 4 (Large) -->
+                <div class="md:col-span-2 glass-card rounded-2xl p-8 flex flex-col justify-between hover:border-brand-lime/30 transition-all">
+                    <div class="max-w-lg space-y-4">
+                        <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
+                            <i data-lucide="layers" class="w-5 h-5"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-xl text-white">Neuro-Muscular Volume Landmarks</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Visualize your weekly set volume against your individualized Minimum Effective Volume (MEV) and Maximum Recoverable Volume (MRV) per muscle group. Never junk-volume a workout again.
+                        </p>
+                    </div>
+                    <!-- Visual Bar Representation -->
+                    <div class="mt-8 space-y-2">
+                        <div class="flex justify-between text-xs">
+                            <span class="text-slate-300 font-medium">Posterior Chain (Weekly Load)</span>
+                            <span class="text-brand-lime font-mono">16 / 18 Sets (Optimal Hypertrophy Zone)</span>
+                        </div>
+                        <div class="w-full h-2.5 bg-brand-dark rounded-full overflow-hidden p-0.5 border border-white/10">
+                            <div class="bg-gradient-to-r from-emerald-500 to-brand-lime h-full rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology / How It Works -->
+    <section id="how-it-works" class="py-24 px-6 bg-brand-surface/40 border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+                <span class="text-xs font-semibold uppercase tracking-widest text-brand-lime">The Loop</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">How Kinetix optimizes every session</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 rounded-2xl bg-brand-dark border border-white/5 space-y-4 relative">
+                    <span class="font-display font-extrabold text-4xl text-white/10 absolute top-4 right-6">01</span>
+                    <div class="w-8 h-8 rounded-lg bg-brand-lime text-brand-dark font-bold flex items-center justify-center text-sm">1</div>
+                    <h3 class="font-display font-bold text-lg text-white">Pre-Workout Readiness</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Kinetix pulls sleep architecture, resting heart rate, and HRV data from your wearable to calculate daily central nervous system readiness.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-brand-dark border border-white/5 space-y-4 relative">
+                    <span class="font-display font-extrabold text-4xl text-white/10 absolute top-4 right-6">02</span>
+                    <div class="w-8 h-8 rounded-lg bg-brand-lime text-brand-dark font-bold flex items-center justify-center text-sm">2</div>
+                    <h3 class="font-display font-bold text-lg text-white">Intra-Workout Adaptation</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        As you log sets, the engine evaluates rep speed and effort. Feeling strong? It scales volume up. Recovering poorly? It pivots to a deload stimulus.
+                    </p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-brand-dark border border-white/5 space-y-4 relative">
+                    <span class="font-display font-extrabold text-4xl text-white/10 absolute top-4 right-6">03</span>
+                    <div class="w-8 h-8 rounded-lg bg-brand-lime text-brand-dark font-bold flex items-center justify-center text-sm">3</div>
+                    <h3 class="font-display font-bold text-lg text-white">Mesocycle Evolution</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Every 4–6 weeks, Kinetix rotates accessories that have stalled and restructures your split to break through biomechanical plateaus.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Roadmap (Shows Startup Momentum) -->
+    <section id="roadmap" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto space-y-12">
+            <div class="text-center space-y-3">
+                <span class="text-xs font-semibold uppercase tracking-widest text-brand-lime">Development Transparency</span>
+                <h2 class="font-display font-bold text-3xl text-white">Product Roadmap</h2>
+                <p class="text-sm text-slate-400">We ship fast. Here is what we've built and where we're heading next.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="glass-card p-6 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-l-4 border-l-emerald-500">
+                    <div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-xs font-bold uppercase px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400">Shipped</span>
+                            <h4 class="font-display font-bold text-white">Core Overload Engine & iOS Beta</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1.5">Algorithmic load prescription, custom mesocycle builder, and Apple HealthKit integration.</p>
+                    </div>
+                    <span class="text-xs font-mono text-slate-500 shrink-0">Q3</span>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-l-4 border-l-brand-lime">
+                    <div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-xs font-bold uppercase px-2 py-0.5 rounded bg-brand-lime/20 text-brand-lime">In Progress</span>
+                            <h4 class="font-display font-bold text-white">Natural Language Workout Architect & Android Release</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1.5">Conversational program adjustments (e.g., "Swap barbell squats for a knee-friendly alternative today") & Whoop API sync.</p>
+                    </div>
+                    <span class="text-xs font-mono text-brand-lime shrink-0">Q4 (Current)</span>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-l-4 border-l-slate-700 opacity-75">
+                    <div>
+                        <div class="flex items-center gap-2.5">
+                            <span class="text-xs font-bold uppercase px-2 py-0.5 rounded bg-white/10 text-slate-300">Planned</span>
+                            <h4 class="font-display font-bold text-white">Real-Time Camera Velocity Tracking (VBT)</h4>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1.5">On-device pose estimation to measure bar speed in meters per second without external hardware sensors.</p>
+                    </div>
+                    <span class="text-xs font-mono text-slate-500 shrink-0">Q1 Next</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 px-6 border-t border-white/5">
+        <div class="max-w-3xl mx-auto space-y-10">
+            <h2 class="font-display font-bold text-3xl text-center text-white">Frequently Asked Questions</h2>
+            
+            <div class="space-y-4">
+                <details class="glass-card rounded-xl p-5 group cursor-pointer">
+                    <summary class="font-display font-semibold text-white flex justify-between items-center list-none">
+                        <span>How is Kinetix different from standard workout trackers?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+                        Most trackers are passive spreadsheets—you have to decide the weight, reps, and when to deload. Kinetix actively computes your fatigue and strength curve after every single set, adjusting your remaining workout in real time.
+                    </p>
+                </details>
+
+                <details class="glass-card rounded-xl p-5 group cursor-pointer">
+                    <summary class="font-display font-semibold text-white flex justify-between items-center list-none">
+                        <span>Do I need a smartwatch or wearable to use the app?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+                        No. While syncing an Apple Watch, Garmin, or Whoop unlocks biometric rest timers and HRV readiness scores, our core progressive overload engine works seamlessly using your logged RPE and rep performance.
+                    </p>
+                </details>
+
+                <details class="glass-card rounded-xl p-5 group cursor-pointer">
+                    <summary class="font-display font-semibold text-white flex justify-between items-center list-none">
+                        <span>How does the Early Access Beta work?</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-open:rotate-180 transition-transform"></i>
+                    </summary>
+                    <p class="text-sm text-slate-400 mt-3 leading-relaxed">
+                        We onboard new users in weekly cohorts to ensure server stability and gather high-signal feedback. Join the waitlist above, and you will receive an invite link via TestFlight (iOS) or Google Play Early Access.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/10 text-center sm:text-left">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2.5">
+                <div class="w-6 h-6 rounded bg-brand-lime flex items-center justify-center text-brand-dark font-display font-extrabold text-xs">
+                    <i data-lucide="activity" class="w-3.5 h-3.5 stroke-[2.5]"></i>
+                </div>
+                <span class="font-display font-bold text-sm tracking-tight text-white">KINETIX LABS INC.</span>
+            </div>
+            
+            <div class="flex gap-6 text-xs text-slate-500">
+                <a href="#" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-slate-300 transition-colors">Terms of Service</a>
+                <a href="mailto:founders@kinetix.fit" class="hover:text-slate-300 transition-colors">Contact Founders</a>
+            </div>
+
+            <div class="text-xs text-slate-600">
+                &copy; 2026 Kinetix Labs. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons & Form Logic -->
+    <script>
+        lucide.createIcons();
+
+        const form = document.getElementById('hero-form');
+        const successMsg = document.getElementById('form-success');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            form.style.display = 'none';
+            successMsg.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
